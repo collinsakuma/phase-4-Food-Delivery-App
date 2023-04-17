@@ -34,9 +34,46 @@ if __name__ == '__main__':
             img_url = 'aburger'
             
         )
+
+        item_3 = Item(
+            name= 'Pizza',
+            price = 7,
+            category = 'American',
+            img_url = 'apizza'
+        )
+
+        item_4 = Item(
+            name = 'Gnocchi',
+            price = 12,
+            category = 'pasta',
+            img_url = 'agnocchi'
+        )
+
+        item_5 = Item(
+            name = 'French Fries',
+            price = 4,
+            category = 'American',
+            img_url = 'afry'
+        )
         
+        user_1 = User(
+            username="Collin",
+            
+            address="1600 Pen Ave",
+            img_url="an image"
+        )
+        user_1.password_hash = user_1.username + 'password'
+
+        user_2 = User(
+            username= 'Clayton97',
+            
+            address='12 Main Str',
+            img_url = 'another image'
+        )
+        user_2.password_hash = user_2.username + 'password'
+
         # Seed code goes here!
-        db.session.add_all([item_1, item_2])
+        db.session.add_all([item_1, item_2, item_3, item_4, item_5, user_1, user_2])
         db.session.commit()
 
         print("db seeded")

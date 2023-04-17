@@ -3,7 +3,6 @@ from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
-from config import db
 
 from config import db, bcrypt
 
@@ -14,7 +13,7 @@ class User(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True, nullable=False)
-    password = db.Column(db.String)
+    _password_hash = db.Column(db.String)
     address = db.Column(db.String)
     img_url = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
